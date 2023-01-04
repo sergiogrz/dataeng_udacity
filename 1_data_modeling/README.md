@@ -49,8 +49,6 @@ docker run \
     cassandra:4.1
 ```
 
-Now it is possible to connect to the Cassandra node created via the CQL shell, `cqlsh`:
-
-```bash
-docker exec -it cassandra_db cqlsh
-```
+Once the container is running, we can access Cassandra database via:
+* CQL shell, cqlsh (`docker exec -it cassandra_db cqlsh`).
+* cassandra-driver, a Python driver for Apache Cassandra (see notebooks).
