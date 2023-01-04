@@ -6,9 +6,9 @@
 4. Project: Data Modeling with Apache Cassandra
 
 ## Requirements
-python==3.9
-notebook
-psycopg2-binary
+python==3.9  
+notebook  
+psycopg2-binary  
 cassandra-driver
 
 ## Relational Data Models
@@ -18,6 +18,11 @@ Run Docker Compose in detached mode:
 ```bash
 docker-compose up -d
 ```
+To shut it down:
+
+```bash
+docker-compose down
+```
 
 Note: to make pgAdmin configuration persistent, create a folder `pgadmin_data` inside `data`. Change its permission via:
 
@@ -26,3 +31,26 @@ sudo chown 5050:5050 data/pgadmin_data
 ```
 
 and mount it to the `/var/lib/pgadmin` folder.
+
+Once Docker containers are running, it is possible to access Postgres database via:
+* psycopg2: PostgreSQL adapter for Python (see notebooks).
+* pgAdmin GUI, at `localhost:8080`.
+
+
+## NoSQL Data Models
+
+Start a Cassandra server instance with Docker:
+
+```bash
+docker run \
+    -v $(pwd)/data/cassandra_data:/var/lib/cassandra \
+    -p 9042:9042 \
+    --name cassandra_db \
+    cassandra:4.1
+```
+
+Now it is possible to connect to the Cassandra node created via the CQL shell, `cqlsh`:
+
+```bash
+docker exec -it cassandra_db cqlsh
+```
