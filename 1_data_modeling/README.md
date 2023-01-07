@@ -6,10 +6,15 @@
 4. Project: Data Modeling with Apache Cassandra
 
 ## Requirements
-python==3.9  
-notebook  
-psycopg2-binary  
-cassandra-driver
+* System requirements:
+    * docker
+    * docker-compose
+    * python==3.9
+* Python package requirements:
+    * notebook
+    * psycopg2-binary
+    * cassandra-driver
+    * prettytable
 
 ## Relational Data Models
 
@@ -52,3 +57,7 @@ docker run \
 Once the container is running, we can access Cassandra database via:
 * CQL shell, cqlsh (`docker exec -it cassandra_db cqlsh`).
 * cassandra-driver, a Python driver for Apache Cassandra (see notebooks).
+
+## Project: Data Modeling with Apache Cassandra
+
+[Link](https://github.com/sergiogrz/dataeng_udacity/tree/main/1_data_modeling/project_data_modeling_cassandra)
