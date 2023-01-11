@@ -1,0 +1,23 @@
+services:
+  pg_pagila_db:
+    image: postgres:13
+    container_name: pg_pagila_db
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=pagila_db
+    volumes:
+      - ./data/postgres_data:/var/lib/postgresql/data:rw
+    ports:
+      - 5432:5432
+
+  pg_admin:
+    image: dpage/pgadmin4
+    container_name: pg_admin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    volumes:
+      - ./data/pgadmin_data:/var/lib/pgadmin:rw
+    ports:
+      - 8080:80

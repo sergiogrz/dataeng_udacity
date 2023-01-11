@@ -7,14 +7,14 @@
 
 ## Requirements
 * System requirements:
-    * docker
-    * docker-compose
-    * python==3.9
+    + docker
+    + docker-compose
+    + python >= 3.9
 * Python package requirements:
-    * notebook
-    * psycopg2-binary
-    * cassandra-driver
-    * prettytable
+    + notebook
+    + psycopg2-binary
+    + cassandra-driver
+    + prettytable
 
 ## Relational Data Models
 
