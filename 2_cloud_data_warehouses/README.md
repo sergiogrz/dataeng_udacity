@@ -12,12 +12,14 @@
     + docker
     + docker-compose
     + python >= 3.9
-    + postgresql-client (`psql` postgres client)
+    + postgresql-client
 * Python package requirements:
     + notebook
     + ipython-sql
     + psycopg2-binary
     + prettytable
+    + pandas
+    + boto3
 
 
 ## Introduction to Data Warehouses
@@ -76,3 +78,9 @@ Related notebooks in the [`notebooks`](https://github.com/sergiogrz/dataeng_udac
 * L1_E1_Introduction_to_Data_Warehouses_P1_SergioGR.ipynb
 * L1_E1_Introduction_to_Data_Warehouses_P2_SergioGR.ipynb
 * L1_E2_OLAP_Cubes_Operations_SergioGR.ipynb
+
+
+## AWS Data Warehouse Technologies
+
+Related notebooks in the [`notebooks`](https://github.com/sergiogrz/dataeng_udacity/tree/main/2_cloud_data_warehouses/notebooks) directory:
+* L3_E1_Create_a_Redshift_cluster_via_SDK_SergioGR.ipynb
