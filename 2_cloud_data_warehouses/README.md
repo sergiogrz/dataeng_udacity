@@ -75,12 +75,12 @@ psql -h localhost -U root pagila_db
 ```
 
 Related notebooks in the [`notebooks`](https://github.com/sergiogrz/dataeng_udacity/tree/main/2_cloud_data_warehouses/notebooks) directory:
-* L1_E1_Introduction_to_Data_Warehouses_P1_SergioGR.ipynb
-* L1_E1_Introduction_to_Data_Warehouses_P2_SergioGR.ipynb
-* L1_E2_OLAP_Cubes_Operations_SergioGR.ipynb
+* L1_E1_Introduction_to_Data_Warehouses_P1.ipynb
+* L1_E1_Introduction_to_Data_Warehouses_P2.ipynb
+* L1_E2_OLAP_Cubes_Operations.ipynb
 
 
 ## AWS Data Warehouse Technologies
 
 Related notebooks in the [`notebooks`](https://github.com/sergiogrz/dataeng_udacity/tree/main/2_cloud_data_warehouses/notebooks) directory:
-* L3_E1_Create_a_Redshift_cluster_via_SDK_SergioGR.ipynb
+* L3_E1_Create_a_Redshift_cluster_via_SDK.ipynb
