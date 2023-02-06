@@ -182,7 +182,7 @@ python create_tables.py
 
 ### Data loading
 
-Finally, we build the ETL pipeline which loads the data into the tables that we have created in the Data Warehouse.
+Finally, we build the ETL pipeline which loads the data into the tables that we have created in the Data Warehouse, by running the [`etl.py`](./etl.py) script.
 
 ```bash
 python etl.py
