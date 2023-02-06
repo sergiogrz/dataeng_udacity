@@ -1,13 +1,14 @@
 # Cloud Data Warehouses
 
-1. Introduction to Data Warehouses
+1. [Introduction to Data Warehouses](#introduction-to-data-warehouses).
 2. ELT and Data Warehouse Technology in the Cloud
 3. AWS Data Warehouse Technologies
-4. Implementing a Data Warehouse on AWS
-5. Project: Data Warehouse
+4. [Implementing a Data Warehouse on AWS](#implementing-a-data-warehouse-on-aws).
+5. [Project: Data Warehouse](./project_data_warehouse/).
 
 
 ## Requirements
+
 * System requirements:
     + docker
     + docker-compose
@@ -20,10 +21,10 @@
     + prettytable
     + pandas
     + boto3
+    + matplotlib
 
 
 ## Introduction to Data Warehouses
-
 
 Note: to make pgAdmin configuration persistent, create a folder `pgadmin_data` inside `data`. Change its permission via:
 
@@ -74,13 +75,21 @@ Then we can run it:
 psql -h localhost -U root pagila_db
 ```
 
-Related notebooks in the [`notebooks`](https://github.com/sergiogrz/dataeng_udacity/tree/main/2_cloud_data_warehouses/notebooks) directory:
+Related notebooks in the [`notebooks`](./notebooks) directory:
 * L1_E1_Introduction_to_Data_Warehouses_P1.ipynb
 * L1_E1_Introduction_to_Data_Warehouses_P2.ipynb
 * L1_E2_OLAP_Cubes_Operations.ipynb
 
 
-## AWS Data Warehouse Technologies
 
-Related notebooks in the [`notebooks`](https://github.com/sergiogrz/dataeng_udacity/tree/main/2_cloud_data_warehouses/notebooks) directory:
-* L3_E1_Create_a_Redshift_cluster_via_SDK.ipynb
+## Implementing a Data Warehouse on AWS
+
+Related notebooks in the [`notebooks`](./notebooks) directory:
+* L4_E1_Create_a_Redshift_cluster_via_SDK.ipynb
+* L4_E2_Parallel_ETL.ipynb
+* L4_E3_Optimizing_Redshift_Table_Design.ipynb
+
+
+## Project: Data Warehouse
+
+[Link](./project_data_warehouse/).

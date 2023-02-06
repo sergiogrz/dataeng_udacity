@@ -1,9 +1,9 @@
 # Data Modeling
 
-1. Introduction to Data Modeling
-2. Relational Data Models
-3. NoSQL Data Models
-4. Project: Data Modeling with Apache Cassandra
+1. Introduction to Data Modeling.
+2. [Relational Data Models](#relational-data-models).
+3. [NoSQL Data Models](#nosql-data-models).
+4. [Project: Data Modeling with Apache Cassandra](./project_data_modeling_cassandra/).
 
 ## Requirements
 * System requirements:
@@ -60,4 +60,4 @@ Once the container is running, we can access Cassandra database via:
 
 ## Project: Data Modeling with Apache Cassandra
 
-[Link](https://github.com/sergiogrz/dataeng_udacity/tree/main/1_data_modeling/project_data_modeling_cassandra)
+[Link](./project_data_modeling_cassandra/)

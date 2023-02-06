@@ -1,8 +1,9 @@
 **/.ipynb_checkpoints
 **/data/*
+*__pycache__
 
 # AWS credentials
 *credentials.csv
 
 # Redshift + IAM user Access key
-*dwh.cfg
+*.cfg
