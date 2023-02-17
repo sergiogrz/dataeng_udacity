@@ -1,8 +1,8 @@
 # Cloud Data Warehouses
 
 1. [Introduction to Data Warehouses](#introduction-to-data-warehouses).
-2. ELT and Data Warehouse Technology in the Cloud
-3. AWS Data Warehouse Technologies
+2. ELT and Data Warehouse Technology in the Cloud.
+3. AWS Data Warehouse Technologies.
 4. [Implementing a Data Warehouse on AWS](#implementing-a-data-warehouse-on-aws).
 5. [Project: Data Warehouse](./project_data_warehouse/).
 

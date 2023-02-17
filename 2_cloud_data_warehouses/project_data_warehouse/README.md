@@ -25,10 +25,12 @@ In this project, we are going to create an ETL pipeline for a database hosted on
   
 The goal of the project is to build an ETL pipeline that extracts Sparkify's data from S3, stages it in Redshift, and transforms it into a set of dimensional tables for their analytics team to continue finding insights in what songs their users are listening to.
 
+![dw project architecture](../images/dw_project_architecture.png)
+
 
 ## Data sources
 
-The data sources to ingest into the data warehouse reside in two public S3 buckets:
+The data sources to ingest into the data warehouse reside in two public S3 buckets.
 
 ### Song dataset 
 
