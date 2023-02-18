@@ -106,7 +106,7 @@ aws s3 cp ./project/starter/accelerometer/ s3://dataeng-udacity-spark/accelerome
 aws s3 ls s3://dataeng-udacity-spark/accelerometer/landing/
 ```
 
-**Handling Sensitive Data**  
+**Handling sensitive data**  
 Data in the landing zone should be dealt with very carefully. It shouldn't be made available for analytics or business intelligence.
 
 

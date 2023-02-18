@@ -124,7 +124,7 @@ aws iam create-role --role-name my-glue-service-role --assume-role-policy-docume
 }'
 ```
 
-Then, we have to grant Glue privileges on the S3 bucket, to allow our Glue job read/write/delete access to the bucket and everything in it. To do that, we have to indicate the AWS Resource Name (ARN) of our S3 bucket.
+Then, we have to grant Glue privileges on the S3 bucket, to allow our Glue job to read/write/delete access to the bucket and everything in it. To do that, we have to indicate the AWS Resource Name (ARN) of our S3 bucket.
 
 
 ```bash
@@ -264,7 +264,7 @@ We can create Glue Jobs by writing, and uploading python code, but Glue Studio a
 
 Let's assume a website creates a daily JSON file of all new customers created during the previous 24 hours. That JSON file will go into the S3 **landing zone** designated for new data. A landing zone is a place where new data arrives prior to processing.
 
-We can copy a sample customer file into S3 using the the AWS CLI.
+We can copy a sample customer file into S3 using the AWS CLI.
 
 ```bash
 # clone repo to get sample file

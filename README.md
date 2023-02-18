@@ -3,6 +3,7 @@
 ## Overview
 
 Nanodegree program taught by Udacity.  
+
 Learn to design data models, build data warehouses and data lakes, automate data pipelines, and manage massive datasets.
 
 [Link](https://www.udacity.com/course/data-engineer-nanodegree--nd027)
@@ -23,3 +24,4 @@ Learn to design data models, build data warehouses and data lakes, automate data
 
 * [Data Modeling with Apache Cassandra](./1_data_modeling/project_data_modeling_cassandra/).
 * [Data Warehouse](./2_cloud_data_warehouses/project_data_warehouse/).
+* [AWS Data Lakehouse](./3_spark_and_data_lakes/project_aws_data_lakehouse/).
