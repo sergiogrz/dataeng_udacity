@@ -314,7 +314,7 @@ At this point, we create 2 AWS Glue jobs to only keep in our Lakehouse trusted z
 
 **Customers trusted data**
 * We build the [customers\_landing\_to\_trusted.py](./scripts/customers_landing_to_trusted.py) job by using Glue Studio.
-* We create a Glue table (_customers\_trusted_) and query it to confirm that we only have records from customers who agreed to share their data_: [SQL DDL script](./scripts/customers_trusted.sql).
+* We create a Glue table (_customers\_trusted_) and query it to confirm that we only have records from customers who agreed to share their data: [SQL DDL script](./scripts/customers_trusted.sql).
 
     ![customers trusted](./images/customers_trusted_query.png)
 

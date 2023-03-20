@@ -17,11 +17,12 @@ Learn to design data models, build data warehouses and data lakes, automate data
 1. [Data Modeling](./1_data_modeling/).
 2. [Cloud Data Warehouses](./2_cloud_data_warehouses/).
 3. [Spark and Data Lakes](./3_spark_and_data_lakes/).
-4. Automate Data Pipelines().
+4. [Automate Data Pipelines](./4_automate_data_pipelines/).
 
 
 ## Projects
 
 * [Data Modeling with Apache Cassandra](./1_data_modeling/project_data_modeling_cassandra/).
-* [Data Warehouse](./2_cloud_data_warehouses/project_data_warehouse/).
+* [Redshift Data Warehouse](./2_cloud_data_warehouses/project_data_warehouse_redshift/).
 * [AWS Data Lakehouse](./3_spark_and_data_lakes/project_aws_data_lakehouse/).
+* [Data Pipelines with Airflow](./4_automate_data_pipelines/project_data_pipelines_airflow/).

@@ -1,4 +1,4 @@
-# Project: Data Warehouse
+# Project: Redshift Data Warehouse
 
 ## Table of contents
 * [Introduction](#introduction).
@@ -21,7 +21,7 @@ A music streaming startup, *Sparkify*, has grown their user base and song databa
 
 In this project, we are going to create an ETL pipeline for a database hosted on Redshift. For that, we will make use of two AWS resources:
 * [Amazon S3](https://aws.amazon.com/s3/).
-* [Amazon Reshift](https://aws.amazon.com/redshift/).
+* [Amazon Redshift](https://aws.amazon.com/redshift/).
   
 The goal of the project is to build an ETL pipeline that extracts Sparkify's data from S3, stages it in Redshift, and transforms it into a set of dimensional tables for their analytics team to continue finding insights in what songs their users are listening to.
 

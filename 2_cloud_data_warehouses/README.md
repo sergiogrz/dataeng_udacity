@@ -4,7 +4,7 @@
 2. ELT and Data Warehouse Technology in the Cloud.
 3. AWS Data Warehouse Technologies.
 4. [Implementing a Data Warehouse on AWS](#implementing-a-data-warehouse-on-aws).
-5. [Project: Data Warehouse](./project_data_warehouse/).
+5. [Project: Redshift Data Warehouse](./project_data_warehouse_redshift/).
 
 
 ## Requirements
@@ -90,6 +90,6 @@ Related notebooks in the [`notebooks`](./notebooks) directory:
 * L4_E3_Optimizing_Redshift_Table_Design.ipynb
 
 
-## Project: Data Warehouse
+## Project: Redshift Data Warehouse
 
-[Link](./project_data_warehouse/).
+[Link](./project_data_warehouse_redshift/).
