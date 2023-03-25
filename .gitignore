@@ -11,3 +11,7 @@
 # Outputs from Pyspark practice notebooks
 wordcount.py
 sparkify_log_small.csv
+
+*.env
+
+*logs

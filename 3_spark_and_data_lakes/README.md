@@ -4,7 +4,7 @@
 2. [Spark essentials](#spark-essentials).
 3. [Using Spark in AWS](#using-spark-in-aws).
 4. [Ingesting and organizing data in a Lakehouse](#ingesting-and-organizing-data-in-a-lakehouse).
-5. [AWS Data Lakehouse](./project_aws_data_lakehouse/).
+5. [Project: AWS Data Lakehouse](./project_aws_data_lakehouse/).
 
 
 ## Requirements
@@ -51,6 +51,6 @@ See [spark_aws.md](./spark_aws.md).
 See [aws_lakehouse.md](./aws_lakehouse.md).
 
 
-## AWS Data Lakehouse
+## Project: AWS Data Lakehouse
 
 [Link](./project_aws_data_lakehouse/).
