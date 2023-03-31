@@ -2,7 +2,7 @@
 
 1. [Data Pipelines](#data-pipelines).
 2. [Airflow and AWS](#airflow-and-aws).
-3. [Data Quality]().
+3. [Data Quality](#data-quality).
 4. [Production Data Pipelines]().
 5. [Project: Data Pipelines]().
 
@@ -16,3 +16,7 @@
 ## Airflow and AWS
 
 * [Notes on Airflow and AWS](./airflow/dags/l3_airflow_and_aws/).
+
+
+## Data Quality
+

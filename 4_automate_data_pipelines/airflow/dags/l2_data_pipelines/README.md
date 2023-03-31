@@ -1,5 +1,7 @@
 # Data pipelines and Airflow DAGs
 
+## Table of contents
+
 * [Callables and decorators](#callables-and-decorators).
 * [DAGs, Operators and Tasks](#dags-operators-and-tasks).
 * [Task dependencies](#task-dependencies).
