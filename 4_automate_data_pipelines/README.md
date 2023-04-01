@@ -20,3 +20,5 @@
 
 ## Data Quality
 
+* [Notes on Data Quality](./airflow/dags/l3_data_quality/).
+
