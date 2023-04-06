@@ -37,6 +37,7 @@ def project_data_pipelines_airflow():
         table="staging_events",
         s3_bucket="airflow-aws",
         s3_key="log-data",
+        region="us-east-1",
         json_path="s3://airflow-aws/log_json_path.json",
     )
 
@@ -47,6 +48,7 @@ def project_data_pipelines_airflow():
         table="staging_songs",
         s3_bucket="airflow-aws",
         s3_key="song-data/A/A",
+        region="us-east-1",
         json_path="auto",
     )
 
@@ -92,7 +94,33 @@ def project_data_pipelines_airflow():
     run_quality_checks = DataQualityOperator(
         task_id="Run_data_quality_checks",
         redshift_conn_id="redshift",
-        tables=["users", "songs", "artists", "time", "songplays"],
+        dq_checks=[
+            {
+                "test_sql": "SELECT COUNT(*) from users",
+                "expected_result": 0,
+                "comparison": ">",
+            },
+            {
+                "test_sql": "SELECT COUNT(*) from songs",
+                "expected_result": 0,
+                "comparison": ">",
+            },
+            {
+                "test_sql": "SELECT COUNT(*) from artists",
+                "expected_result": 0,
+                "comparison": ">",
+            },
+            {
+                "test_sql": "SELECT COUNT(*) from time",
+                "expected_result": 0,
+                "comparison": ">",
+            },
+            {
+                "test_sql": "SELECT COUNT(*) from songplays",
+                "expected_result": 0,
+                "comparison": ">",
+            },
+        ],
     )
 
     end_operator = DummyOperator(task_id="Stop_execution")

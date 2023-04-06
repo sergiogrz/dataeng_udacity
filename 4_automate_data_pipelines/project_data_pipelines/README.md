@@ -6,8 +6,10 @@
 * [Prerequisites](#prerequisites).
 * [Data sources](#data-sources).
 * [Project structure](#project-structure).
-* [Configuring the DAG](#configuring-the-dag).
+* [Create tables DAG](#create-tables-dag)
+* [Configuring the main DAG](#configuring-the-main-dag).
 * [Building the operators](#building-the-operators).
+* [Running the main DAG](#running-the-main-dag)
 
 
 
@@ -36,6 +38,8 @@ For this project, we work with two datasets. Here are the s3 links for each:
 * Log data: `s3://udacity-dend/log_data`.
 * Song data: `s3://udacity-dend/song_data`.
 
+There is also a third file, `s3://udacity-dend/log_json_path.json`, which contains the meta information that is required by AWS to correctly load the log dataset.
+
 We need to copy the data to our own bucket, so Redhsift can have access to it.
 
 If we haven't already, we create our own bucket using the AWS Cloudshell (buckets need to be unique across all AWS accounts):
@@ -49,6 +53,7 @@ Copy the data from the Udacity bucket to the home cloudshell directory:
 ```bash
 aws s3 cp s3://udacity-dend/log-data/ ~/log-data/ --recursive
 aws s3 cp s3://udacity-dend/song-data/ ~/song-data/ --recursive
+aws s3 cp s3://udacity-dend/log_json_path.json ~/
 ```
 
 Copy the data from the home cloudshell directory to our own bucket:
@@ -56,6 +61,7 @@ Copy the data from the home cloudshell directory to our own bucket:
 ```bash
 aws s3 cp ~/log-data/ s3://airflow-aws/log-data/ --recursive
 aws s3 cp ~/song-data/ s3://airflow-aws/song-data/ --recursive
+aws s3 cp ~/log_json_path.json s3://airflow-aws/
 ```
 
 We list the data in our bucket to be sure it copied over:
@@ -63,22 +69,39 @@ We list the data in our bucket to be sure it copied over:
 ```bash
 aws s3 ls s3://airflow-aws/log-data/
 aws s3 ls s3://airflow-aws/song-data/
+aws s3 ls s3://airflow-aws
 ```
-
 
 
 ## Project structure
 
-The project structure consists of three major components:
-* DAG.
-* Operators.
-* A helper class for the SQL transformations.
+```
+.
+├── dags/
+│   ├── create_tables.py                          # DAG to create all the tables on Redshift
+│   ├── final_project.py                          # DAG for the main ETL pipeline
+│   └── udacity/
+│       └── common/
+│           ├── create_tables_sql_statements.py   # SQL statements to create the tables
+│           └── final_project_sql_statements.py   # SQL statements to insert data into tables
+├── logs
+└── plugins/
+    └── final_project_operators/
+        ├── data_quality.py                       # Data quality check operator
+        ├── load_dimension.py                     # Load dimension table operator
+        ├── load_fact.py                          # Load fact table operator
+        └── stage_redshift.py                     # Stage data from S3 to Redshift operator
+```
 
 
+## Create tables DAG
 
-## Configuring the DAG
+First, we need to run the [`create_tables`](./dags/create_tables.py) DAG to create all the tables to populate in Redshift.
 
-In the DAG, we add `default parameters` following these guidelines:
+
+## Configuring the main DAG
+
+In the [`project_data_pipelines_airflow`](./dags/final_project.py) DAG, we add `default parameters` following these guidelines:
 * The DAG does not have dependencies on past runs.
 * On failure, the task are retried 3 times.
 * Retries happen every 5 minutes.
@@ -118,3 +141,10 @@ Dimension loads are often done with the truncate-insert pattern where the target
 The final operator to create is the data quality operator, which is used to run checks on the data itself. The operator's main functionality is to receive one or more SQL based test cases along with the expected results and execute the tests. For each the test, the test result and expected result needs to be checked and if there is no match, the operator should raise an exception and the task should retry and fail eventually.
 
 For example one test could be a SQL statement that checks if certain column contains NULL values by counting all the rows that have NULL in the column. We do not want to have any NULLs so expected result would be 0 and the test would compare the SQL statement's outcome to the expected result.
+
+
+## Running the main DAG
+
+Finally, once we have our tables created in Redshift and configured our main DAG, we can run it and verify it works as expected.
+
+![airflow project main dag](../images/airflow_project_main_dag.png)
