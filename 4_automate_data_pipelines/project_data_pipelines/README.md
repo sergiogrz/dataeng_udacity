@@ -23,10 +23,10 @@ The source data resides in S3 and needs to be processed in Sparkify's data wareh
 
 ## Prerequisites
 
-* [Create an IAM user in AWS](../dags/l3_airflow_and_aws/README.md#create-an-iam-user-in-aws).
-* [Configure Redshift Serverless in AWS](../dags/l3_airflow_and_aws/README.md#configure-aws-redshift-serverless).
-* [Connect Airflow and AWS](../dags/l3_airflow_and_aws/README.md#add-airflow-connections).
-* [Connect Airflow to AWS Redshift Serverless](../dags/l3_airflow_and_aws/README.md#add-airflow-connections-to-aws-redshift).
+* [Create an IAM user in AWS](../airflow/dags/l3_airflow_and_aws/README.md#create-an-iam-user-in-aws).
+* [Configure Redshift Serverless in AWS](../airflow/dags/l3_airflow_and_aws/README.md#configure-aws-redshift-serverless).
+* [Connect Airflow and AWS](../airflow/dags/l3_airflow_and_aws/README.md#add-airflow-connections).
+* [Connect Airflow to AWS Redshift Serverless](../airflow/dags/l3_airflow_and_aws/README.md#add-airflow-connections-to-aws-redshift).
 
 
 
@@ -88,7 +88,7 @@ In the DAG, we add `default parameters` following these guidelines:
 
 The graph view of the task dependencies follows the flow shown in the image below.
 
-![airflow project](../../images/airflow_project.png)
+![airflow project](../images/airflow_project.png)
 
 
 

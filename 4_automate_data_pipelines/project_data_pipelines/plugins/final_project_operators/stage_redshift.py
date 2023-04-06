@@ -6,13 +6,13 @@ from airflow.utils.decorators import apply_defaults
 
 class StageToRedshiftOperator(BaseOperator):
     ui_color = "#358140"
-    template_fields = ("s3_key",)
+
     copy_sql = """
         COPY {}
         FROM '{}'
         ACCESS_KEY_ID '{}'
         SECRET_ACCESS_KEY '{}'
-        FORMAT AS JSON 'auto';
+        JSON '{}';
     """
 
     @apply_defaults
@@ -23,6 +23,7 @@ class StageToRedshiftOperator(BaseOperator):
         table="",
         s3_bucket="",
         s3_key="",
+        json_path="auto",
         *args,
         **kwargs,
     ):
@@ -33,6 +34,7 @@ class StageToRedshiftOperator(BaseOperator):
         self.table = table
         self.s3_bucket = s3_bucket
         self.s3_key = s3_key
+        self.json_path = json_path
 
     def execute(self, context):
         self.log.info("Getting AWS credentials")
@@ -43,7 +45,7 @@ class StageToRedshiftOperator(BaseOperator):
         redshift = PostgresHook(postgres_conn_id=self.redshift_conn_id)
 
         self.log.info("Clearing data from destination Redshift table")
-        redshift.run(f"DROP TABLE IF EXISTS {self.table}")
+        redshift.run(f"TRUNCATE TABLE {self.table}")
 
         self.log.info("Copying data from S3 to Redshift")
         rendered_key = self.s3_key.format(**context)
@@ -53,5 +55,6 @@ class StageToRedshiftOperator(BaseOperator):
             s3_path,
             aws_connection.login,
             aws_connection.password,
+            self.json_path,
         )
         redshift.run(formatted_sql)

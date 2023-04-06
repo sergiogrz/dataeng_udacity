@@ -4,7 +4,7 @@
 2. [Airflow and AWS](#airflow-and-aws).
 3. [Data Quality](#data-quality).
 4. [Production Data Pipelines](#production-data-pipelines).
-5. [Project: Data Pipelines](./airflow/project_data_pipelines/).
+5. [Project: Data Pipelines](./project_data_pipelines/).
 
 
 ## Data Pipelines
@@ -30,4 +30,4 @@
 
 ## Project: Data Pipelines
 
-[Link](./airflow/project_data_pipelines/).
+[Link](./project_data_pipelines/).

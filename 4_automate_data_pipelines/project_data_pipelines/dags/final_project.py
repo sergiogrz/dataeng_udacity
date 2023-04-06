@@ -1,22 +1,17 @@
-from datetime import datetime, timedelta
-from datetime import datetime, timedelta
+from datetime import timedelta
 import pendulum
-import os
 from airflow.decorators import dag
 from airflow.operators.dummy_operator import DummyOperator
-from airflow.operators.postgres_operator import PostgresOperator
-from plugins.operators import (
-    StageToRedshiftOperator,
-    LoadFactOperator,
-    LoadDimensionOperator,
-    DataQualityOperator,
-)
-from plugins.helpers import SqlQueries
+from final_project_operators.stage_redshift import StageToRedshiftOperator
+from final_project_operators.load_fact import LoadFactOperator
+from final_project_operators.load_dimension import LoadDimensionOperator
+from final_project_operators.data_quality import DataQualityOperator
+from udacity.common.final_project_sql_statements import SqlQueries
 
 
 default_args = {
     "owner": "sergiogrz",
-    "start_date": pendulum.now(),
+    "start_date": pendulum.datetime(2018, 11, 30),
     "depends_on_past": False,
     "retries": 3,
     "retry_delay": timedelta(minutes=5),
@@ -29,6 +24,7 @@ default_args = {
     default_args=default_args,
     description="Load and transform data in Redshift with Airflow",
     schedule_interval="0 * * * *",
+    max_active_runs=1,
 )
 def project_data_pipelines_airflow():
 
@@ -41,6 +37,7 @@ def project_data_pipelines_airflow():
         table="staging_events",
         s3_bucket="airflow-aws",
         s3_key="log-data",
+        json_path="s3://airflow-aws/log_json_path.json",
     )
 
     stage_songs_to_redshift = StageToRedshiftOperator(
@@ -49,7 +46,8 @@ def project_data_pipelines_airflow():
         aws_credentials_id="aws_credentials",
         table="staging_songs",
         s3_bucket="airflow-aws",
-        s3_key="song-data",
+        s3_key="song-data/A/A",
+        json_path="auto",
     )
 
     load_songplays_table = LoadFactOperator(
@@ -62,7 +60,7 @@ def project_data_pipelines_airflow():
     load_user_dimension_table = LoadDimensionOperator(
         task_id="Load_user_dim_table",
         redshift_conn_id="redshift",
-        table="user",
+        table="users",
         sql_query=SqlQueries.user_table_insert,
         truncate=True,
     )
@@ -70,7 +68,7 @@ def project_data_pipelines_airflow():
     load_song_dimension_table = LoadDimensionOperator(
         task_id="Load_song_dim_table",
         redshift_conn_id="redshift",
-        table="song",
+        table="songs",
         sql_query=SqlQueries.song_table_insert,
         truncate=True,
     )
@@ -78,7 +76,7 @@ def project_data_pipelines_airflow():
     load_artist_dimension_table = LoadDimensionOperator(
         task_id="Load_artist_dim_table",
         redshift_conn_id="redshift",
-        table="artist",
+        table="artists",
         sql_query=SqlQueries.artist_table_insert,
         truncate=True,
     )
@@ -94,7 +92,7 @@ def project_data_pipelines_airflow():
     run_quality_checks = DataQualityOperator(
         task_id="Run_data_quality_checks",
         redshift_conn_id="redshift",
-        tables=["user", "song", "artist", "time", "songplays"],
+        tables=["users", "songs", "artists", "time", "songplays"],
     )
 
     end_operator = DummyOperator(task_id="Stop_execution")
