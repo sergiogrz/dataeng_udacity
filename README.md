@@ -26,3 +26,8 @@ Learn to design data models, build data warehouses and data lakes, automate data
 * [Redshift Data Warehouse](./2_cloud_data_warehouses/project_data_warehouse_redshift/).
 * [AWS Data Lakehouse](./3_spark_and_data_lakes/project_aws_data_lakehouse/).
 * [Data Pipelines with Airflow](./4_automate_data_pipelines/project_data_pipelines/)
+
+
+## Notes from the course
+
+See [course_notes.pdf](./course_notes.pdf).
